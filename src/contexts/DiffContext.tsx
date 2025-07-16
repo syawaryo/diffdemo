@@ -7,12 +7,17 @@ type DiffCtx = {
   setActiveId: (id: string | null) => void;
   goToPage: (page: number) => void;
   registerPageChanger: (fn: (page: number) => void) => void;
+  showGuidelineForId: string | null;
+  showGuidelinePage: number | null;
+  setShowGuidelineForId: (id: string | null, page?: number) => void;
 };
 
 const DiffContext = createContext<DiffCtx | null>(null);
 
 export function DiffProvider({ children }: { children: ReactNode }) {
   const [activeId, setActiveIdState] = useState<string | null>(null);
+  const [showGuidelineForId, setShowGuidelineForIdState] = useState<string | null>(null);
+  const [showGuidelinePage, setShowGuidelinePage] = useState<number | null>(null);
   const pageChangerRef = useRef<((page: number) => void) | null>(null);
 
   const setActiveId = useCallback((id: string | null) => {
@@ -37,12 +42,20 @@ export function DiffProvider({ children }: { children: ReactNode }) {
     pageChangerRef.current = fn;
   }, []);
 
+  const setShowGuidelineForId = useCallback((id: string | null, page?: number) => {
+    setShowGuidelineForIdState(id);
+    setShowGuidelinePage(page || null);
+  }, []);
+
   return (
     <DiffContext.Provider value={{ 
       activeId, 
       setActiveId, 
       goToPage, 
-      registerPageChanger 
+      registerPageChanger,
+      showGuidelineForId,
+      showGuidelinePage,
+      setShowGuidelineForId
     }}>
       {children}
     </DiffContext.Provider>
