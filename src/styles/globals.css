@@ -1,0 +1,5 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ここに追加のカスタム CSS を書いてもOK */
