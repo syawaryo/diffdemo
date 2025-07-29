@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useDiff } from '@/contexts/DiffContext';
 import { DiffBox } from '@/data/diffMap';
 import { guidelineHighlights } from '@/data/guidelineMap';
-import { FileText, AlertCircle, ChevronDown, ChevronUp, Info } from 'lucide-react';
-import React, { useEffect, useRef, useState } from 'react';
+import { FileText, AlertCircle, ChevronDown, ChevronUp} from 'lucide-react';
+import React, { useEffect, useRef} from 'react';
 import dynamic from 'next/dynamic';
 
 const GuidelinePDFViewer = dynamic(() => import('./GuidelinePDFViewer'), {

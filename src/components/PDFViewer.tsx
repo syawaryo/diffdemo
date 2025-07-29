@@ -20,11 +20,7 @@ interface PDFDocument {
   pageNumber: number;
 }
 
-interface PDFViewerProps {
-  isPanelOpen?: boolean;
-}
-
-export default function PDFViewer({ isPanelOpen = true }: PDFViewerProps) {
+export default function PDFViewer() {
   const [viewMode, setViewMode] = useState<ViewMode>('both');
   const [scale, setScale] = useState(0.9);
   const { registerPageChanger } = useDiff();
