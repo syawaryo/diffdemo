@@ -31,7 +31,6 @@ export default function Home() {
   const fileLabels = {
     template: { label: '雛形PDF', description: '前年度の承認済みパンフレット' },
     check: { label: 'チェック対象PDF', description: '今年度の新しいパンフレット' },
-    guideline: { label: 'ガイドラインPDF', description: '企業ガイドライン・規定書' }
   };
 
   const handleFileSelect = (type: FileType, event: React.ChangeEvent<HTMLInputElement>) => {
@@ -56,8 +55,6 @@ export default function Home() {
     
     router.push('/demo');
   };
-
-  const allFilesUploaded = Object.values(uploadedFiles).every(file => file !== null);
 
   return (
     <main className="min-h-screen bg-gray-50">

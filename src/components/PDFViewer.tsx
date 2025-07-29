@@ -20,7 +20,11 @@ interface PDFDocument {
   pageNumber: number;
 }
 
-export default function PDFViewer() {
+interface PDFViewerProps {
+  isPanelOpen?: boolean;
+}
+
+export default function PDFViewer({ isPanelOpen = true }: PDFViewerProps) {
   const [viewMode, setViewMode] = useState<ViewMode>('both');
   const [scale, setScale] = useState(0.9);
   const { registerPageChanger } = useDiff();
@@ -52,6 +56,7 @@ export default function PDFViewer() {
       }));
     });
   }, [registerPageChanger]);
+
 
   const onDocumentLoadSuccess = (year: '2025' | '2024') => ({ numPages }: { numPages: number }) => {
     setDocuments(prev => ({
@@ -132,8 +137,8 @@ export default function PDFViewer() {
               className="px-2 py-1 text-xs border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="both">両方表示</option>
-              <option value="2025-only">2025年のみ</option>
-              <option value="2024-only">2024年のみ</option>
+              <option value="2025-only">チェック対象のみ</option>
+              <option value="2024-only">雛形のみ</option>
             </select>
           </div>
 
@@ -193,14 +198,14 @@ export default function PDFViewer() {
 
       {/* PDFビューエリア */}
       <div className="flex-1 overflow-auto">
-        <div className="p-4">
-          <div className={`flex ${viewMode === 'both' ? 'space-x-4' : 'justify-center'}`}>
+        <div className="p-4 flex justify-center min-w-max">
+          <div className={`flex ${viewMode === 'both' ? 'space-x-4' : ''}`}>
             {documentsToRender.map((doc) => (
-              <div key={doc.year} className="flex-shrink-0">
+              <div key={doc.year} className="flex-shrink-0 flex flex-col items-center">
                 {viewMode === 'both' && (
                   <div className="text-center mb-2">
                     <span className="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
-                      {doc.year}年
+                      {doc.year === '2025' ? 'チェック対象' : '雛形'}
                     </span>
                   </div>
                 )}
@@ -235,7 +240,6 @@ export default function PDFViewer() {
                       renderAnnotationLayer={true}
                       className="z-0"
                     />
-                    {/* DiffOverlayを追加（2025年の場合のみ） */}
                     {doc.year === '2025' && (
                       <DiffOverlay page={doc.pageNumber} scale={scale} />
                     )}

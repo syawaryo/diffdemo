@@ -65,10 +65,16 @@ function DiffOverlay({ page, scale }: Props) {
             {b.id}
           </span>
           
-          {/* ホバー時の詳細情報 */}
-          <div className="absolute bottom-0 left-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-            <div className="bg-gray-900 text-white text-xs p-2 rounded-b-lg shadow-xl">
-              <div className="truncate">{b.summary}</div>
+          {/* ホバー時の詳細情報 - 吹き出し風ポップアップ */}
+          <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 -translate-y-full opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none z-30">
+            <div className="relative">
+              <div className="bg-gray-900 text-white text-xs px-4 py-3 rounded-lg shadow-2xl min-w-[200px] max-w-md whitespace-normal">
+                <div className="font-medium">{b.summary}</div>
+              </div>
+              {/* 吹き出しの三角形 */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-2">
+                <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-gray-900"></div>
+              </div>
             </div>
           </div>
         </div>

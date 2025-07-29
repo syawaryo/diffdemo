@@ -206,7 +206,7 @@ function DiffSummaryPanel({ boxes }: { boxes: DiffBox[] }) {
                               </p>
                               
                               {/* ガイドライン注釈（スタイリング版） */}
-                              {guidelineInfo && (
+                              {guidelineInfo && guidelineInfo.annotation && (
                                 <motion.div
                                   initial={{ opacity: 0, y: 5 }}
                                   animate={{ opacity: 1, y: 0 }}

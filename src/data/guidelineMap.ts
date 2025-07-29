@@ -19,7 +19,7 @@ export const guidelineHighlights: GuidelineHighlight[] = [
     w: 400,
     h: 30,
     text: '割引率は最大10%までとする',
-    annotation: '割引率を5%に引き下げてください。収益性改善のためです。'
+    annotation: ''
   },
   {
     diffId: 'D‑02',
@@ -29,7 +29,7 @@ export const guidelineHighlights: GuidelineHighlight[] = [
     w: 380,
     h: 35,
     text: '製品説明は詳細かつ明確に記載すること',
-    annotation: '△△の説明文が不足しています。詳細な説明を追加してください。'
+    annotation: ''
   },
   {
     diffId: 'D‑03',
@@ -39,7 +39,7 @@ export const guidelineHighlights: GuidelineHighlight[] = [
     w: 350,
     h: 30,
     text: '価格設定は市場動向を考慮して決定',
-    annotation: '□□の価格が高すぎます。900円に変更してください。'
+    annotation: 'ガイドラインと異なります'
   },
   {
     diffId: 'D‑04',
@@ -48,8 +48,8 @@ export const guidelineHighlights: GuidelineHighlight[] = [
     y: 150,
     w: 420,
     h: 40,
-    text: '画像は高解像度で統一感のあるものを使用',
-    annotation: '××の画像が古いガイドラインのものです。最新版に差し替えてください。'
+    text: '20万円→25万円、10万円→15万円に変更されました',
+    annotation: 'ガイドラインと異なります'
   },
   {
     diffId: 'D‑05',
@@ -58,8 +58,8 @@ export const guidelineHighlights: GuidelineHighlight[] = [
     y: 400,
     w: 300,
     h: 30,
-    text: 'タイトルは簡潔で分かりやすく',
-    annotation: '◎◎のタイトルが分かりにくいです。より直感的な表現に変更してください。'
+    text: '5万円→6万円に変更されました',
+    annotation: 'ガイドラインと異なります'
   },
   {
     diffId: 'D‑06',
@@ -68,8 +68,8 @@ export const guidelineHighlights: GuidelineHighlight[] = [
     y: 250,
     w: 410,
     h: 35,
-    text: 'フォントサイズは可読性を重視して設定',
-    annotation: '△△のフォントサイズが小さすぎます。視認性向上のため大きくしてください。'
+    text: 'ご加入内容確認事項が変更されました',
+    annotation: 'ガイドラインと異なります'
   },
   {
     diffId: 'D‑07',
